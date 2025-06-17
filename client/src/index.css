@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(45, 93%, 47%);
+  --primary-foreground: hsl(26, 83%, 14%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(45, 93%, 47%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(45, 93%, 47%);
+  --primary-foreground: hsl(26, 83%, 14%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(45, 93%, 47%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom styles for rich text editor */
+.rich-editor {
+  min-height: 400px;
+  padding: 1rem;
+  border: 1px solid hsl(20, 5.9%, 90%);
+  border-radius: 0.5rem;
+  outline: none;
+  line-height: 1.6;
+}
+
+.rich-editor:focus {
+  border-color: hsl(207, 90%, 54%);
+  box-shadow: 0 0 0 2px hsl(207, 90%, 54%, 0.2);
+}
+
+.rich-editor:empty:before {
+  content: attr(data-placeholder);
+  color: hsl(25, 5.3%, 44.7%);
+  pointer-events: none;
+}
+
+/* Blog post content styling */
+.post-content {
+  line-height: 1.7;
+}
+
+.post-content h1 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.post-content h2 {
+  @apply text-xl font-bold mb-3;
+}
+
+.post-content h3 {
+  @apply text-lg font-semibold mb-2;
+}
+
+.post-content p {
+  @apply mb-4;
+}
+
+.post-content ul {
+  @apply list-disc list-inside mb-4;
+}
+
+.post-content ol {
+  @apply list-decimal list-inside mb-4;
+}
+
+.post-content blockquote {
+  @apply border-l-4 border-primary pl-4 italic mb-4;
+}
+
+.post-content code {
+  @apply bg-muted px-1 py-0.5 rounded text-sm;
+}
+
+.post-content pre {
+  @apply bg-muted p-4 rounded-lg mb-4 overflow-x-auto;
+}
+
+.post-content a {
+  @apply text-primary hover:underline;
+}
+
+.post-content img {
+  @apply max-w-full h-auto rounded-lg mb-4;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply bg-muted animate-pulse rounded;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
